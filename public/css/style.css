@@ -1,0 +1,131 @@
+html, body {
+  background-color: #646464;
+  max-height: 100%;
+}
+
+.content {
+  background-color: #646464;
+}
+
+.tweet-bar {
+  background-color: transparent !important;
+}
+
+md-toolbar {
+  border-radius: 5px;
+}
+
+
+
+md-sidenav {
+  height: 100%;
+  max-height: 100%;
+  min-height: 100%;
+  box-shadow: 0px 0px 3px 1px #222;
+  border: 1px #111 solid;
+}
+
+md-sidenav md-content {
+  background-color: #545454 !important;
+  height: 96%;
+}
+
+md-chips .md-chip {
+  background: #2196f3 none repeat scroll 0% 0%;
+}
+
+md-chips md-chip md-chip-remove-container {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  margin-right: 0px;
+  height: 24px;
+  margin-left: 5px;
+}
+
+.md-chip-input-container {
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+.md-chips .md-chip .md-chip-remove-container button {
+  position: relative;
+  height: 24px;
+  width: 24px;
+  line-height: 30px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3) none repeat scroll 0% 0%;
+  border-radius: 50%;
+  border: medium none;
+  box-shadow: none;
+  padding: 0px;
+  margin: 0px;
+  transition: background 0.15s linear 0s;
+  display: block;
+}
+
+.md-chips .md-chip .md-chip-remove-container button md-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0px) scale(0.7);
+  color: #FFF;
+  fill: #FFF;
+}
+
+.md-chips .md-chip .md-chip-remove-container button md-icon:hover, .md-chips .md-chip .md-chip-remove-container button md-icon:focus {
+  background: rgba(255, 0, 0, 0.8);
+}
+
+@media (max-width: 959px) {
+  .tweet-bar {
+    position: fixed;
+    width: 96%;
+  }
+  .tweet-bar .md-toolbar-tools {
+    margin-bottom: 15px;
+    margin-left: 75%;
+  }
+}
+
+a {
+  color: #64b5f6;
+}
+
+li {
+	list-style-type: none;
+}
+
+#info {
+	border-right: #666 2px solid;
+	position: fixed;
+	overflow: auto;
+  margin: 0px;
+	height: 100%;
+}
+
+
+
+.ng-enter {
+-webkit-transition: all .2s linear;
+-moz-transition: all .2s linear;
+-ms-transition: all .2s linear;
+-o-transition: all .2s linear;
+transition: all .2s linear;
+opacity: 0;
+}
+.ng-enter-active {
+opacity: 1;
+}
+
+.ng-leave {
+-webkit-transition: all .1s linear;
+-moz-transition: all .1s linear;
+-ms-transition: all .1s linear;
+-o-transition: all .1s linear;
+transition: all .1s linear;
+opacity: 1;
+}
+.ng-leave-active {
+opacity: 0;
+}

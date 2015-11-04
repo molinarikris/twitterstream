@@ -1,0 +1,27 @@
+{
+  "name": "Propogation",
+  "description": "The twitter-feed for the Collesium Pub.",
+  "main": "app.js",
+  "authors": [
+    "Kris Molinari"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "thefullstackguy.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-socket-io": "~0.7.0",
+    "angular-material": "master",
+    "core-component-page": "Polymer/core-component-page#^0.5",
+    "bootstrap": "~3.3.5",
+    "jasmine-core": "~2.3.4"
+  }
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app='angular-twitter-app'>
+  <head>
+      <title>Tweet Stream</title>
+      <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'/>
+      <link rel="stylesheet" href="/lib/angular-material/angular-material.css" />
+      <link rel="stylesheet" href='/css/style.css' />
+      <script src='/socket.io/socket.io.js'></script>
+      <script src='/lib/angular/angular.js'></script>
+      <script src='/lib/angular-socket-io/socket.js'></script>
+      <script src="/lib/angular-aria/angular-aria.js"></script>
+      <script src="/lib/angular-animate/angular-animate.js"></script>
+      <script src="/lib/angular-material/angular-material.js"></script>
+      <script src='/js/angular-twitter-app.js'></script>
+      <script src='/js/controllers.js'></script>
+  </head>
+  <body ng-controller='mainCtrl' md-swipe-right='toggle("left")' md-swipe-left='close("left")'>
+      <div>
+        <section layout='row' ng-style='adjustHeight()'>
+          <md-sidenav class='md-sidenav-left' md-component-id='left' md-is-locked-open='$mdMedia("gt-md")'>
+            <md-content layout-padding>
+              <md-toolbar>
+                <h1 class="md-toolbar-tools">Settings</h1>
+              </md-toolbar>
+              <div ng-repeat='verb in verbs'>
+                <h2>You're {{verb}}</h2>
+                <md-chips ng-model='sets[verb]' md-on-append='newThing(verb, $chip)' md-on-remove="stopThing(verb, $chip)" placeholder='{{placeholder(verb)}}' secondary-placeholder="{{placeholder(verb)}}">
+                  <md-chip-template>
+                    <span>
+                      <strong>{{$chip}}</strong>
+                    </span>
+                  </md-chip-template>
+                  <button md-chip-remove class='md-primary'><md-icon md-svg-icon='md-close'></md-icon></button>
+                </md-chips>
+              </div>
+            </md-content>
+          </md-sidenav>
+          <md-content flex layout-padding class='content'>
+            <div layout='column' layout-fill layout-align="top center" id="tweets">
+              <md-toolbar class="tweet-bar" hide-gt-md>
+                <div class='md-toolbar-tools '>
+                  <md-button class='md-primary'  ng-click='toggle("left")' aria-label="Toggle Menu" ><span>menu </span><md-icon><svg style="pointer-events: none; display: block;" preserveAspectRatio="xMidYMid meet" fit="" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 18 18">
+                    <path d="M0 0h18v18h-18z" fill="none"></path>
+                    <path d="M2 13.5h14v-1.5h-14v1.5zm0-4h14v-1.5h-14v1.5zm0-5.5v1.5h14v-1.5h-14z" fill='#fff'></path>
+                    </svg></md-icon>
+                  </md-button>
+                </div>
+              </md-toolbar>
+              <md-list class='tweet-holder'>
+                <md-list-item ng-repeat='tweet in tweets'>
+                  <img ng-src='{{tweet.user.profile_image_url}}' class='md-avatar' alt="{{tweet.user.screen_name}}"/>
+                  <div class='md-list-item-text'>
+                    <h1>
+                      <a class='md-primary' ng-href='http://twitter.com/{{tweet.user.screen_name}}'>@{{tweet.user.screen_name}}
+                      </a>
+                    </h1>
+                    <h3 ng-bind='tweet.text'></h3>
+                    <md-divider></md-divider>
+                    <img ng-src='{{tweet.entities.media[0].media_url_https}}' ng-show='{{tweet.entities.media.length}}' height="124px" width="256px"/>
+                    <p>Posted at {{tweet.created_at | date: 'medium'}}</p>
+                  </div>
+              </md-list-item>
+            </md-list>
+          </md-content>
+        </section>
+      </div>
+  </body>
+</html>
